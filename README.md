@@ -26,3 +26,33 @@ and solve it as we did in the lectures. Give the final $\Theta$ complexity.
 
 Describe your reasoning and the conclusion you've come to. Your reasoning is the
 most important part. Add your answer to this markdown file.
+
+
+T(n) = { 1 if n <=2 
+        3T(n/3) + 1 if n > 2}
+
+T(n) = 3T(n/3) + 1
+my algorithm calls the function 3 times, for each third of an array. The 1 comes from the fact that it isn't doing anything else besides returning the value immediately is constant time.
+
+T(n) = 3T(n/3) + 1 
+
+    = 3(3T(n/3/3) + 1/3) + 1
+
+    = 9T(n/9) + 1/3 + 1
+
+    = 27T(n/27) + 1/9 + 1/3 + 1 
+
+    = 3^iT(n/3^i) + 1.5           i = log3(n) <= because its is 3 split
+
+    = 3^log3(n)T(n/3^log3(n)) + 1.5 
+
+    1.5 comes from the sum of 1 + 1/3 + 1/9 + 1/27 +.... using geometric sums a/(1+r), r = 1/3
+
+    T(n/3^log3(n)) = 1
+
+    so 3^log3(n)*1 + 1.5
+
+    log(n) + 1.5
+
+asymtotically, the bases of the log doesnt matter, neither does the constant so
+$\Theta$(log(n)) 
