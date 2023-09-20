@@ -12,15 +12,9 @@ function divideAndConquerSum(a) {
         return a[0] + a[1];
     }
     var partition1 = Math.floor(a.length/3)
-    for(var k = 0; k < partition1; k++){
-        Ltemp[k] = a[k]
-    }
-    for(var k = partition1; k < partition1*2; k++){
-        Mtemp[k-partition1] = a[k]
-    }
-    for(var k = partition1*2; k < a.length; k++){
-        Rtemp[k-partition1*2] = a[k]
-    }
+    Ltemp = a.slice(0, partition1)
+    Mtemp = a.slice(partition1, partition1*2)
+    Rtemp = a.slice(partition1*2, a.length)
     var LSum = divideAndConquerSum(Ltemp);
     var MSum = divideAndConquerSum(Mtemp);
     var RSum = divideAndConquerSum(Rtemp);
@@ -28,4 +22,4 @@ function divideAndConquerSum(a) {
     return LSum + MSum + RSum;
 }
 
-//console.log(divideAndConquerSum([1, 2, 3, 4, 5, 6, 7, 8, 9])) //testing purposes
+//console.log(divideAndConquerSum([1, 2, 3, 4, 5, 6, 7, 8, 9,10,11])) //testing purposes

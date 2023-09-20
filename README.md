@@ -36,23 +36,23 @@ my algorithm calls the function 3 times, for each third of an array. The 1 comes
 
 T(n) = 3T(n/3) + 1 
 
-    = 3(3T(n/3/3) + 1/3) + 1
+    = 3(3T(n/3/3)) + 1
 
-    = 9T(n/9) + 1/3 + 1
+    = 9T(n/9) + 1
 
-    = 27T(n/27) + 1/9 + 1/3 + 1 
+    = 27T(n/27) + 1 
 
-    = 3^iT(n/3^i) + 1.5           i = log3(n) <= because its is 3 split
+    = 3^iT(n/3^i) + 1       i = log3(n) <= because its is 3 split
 
-    = 3^log3(n)T(n/3^log3(n)) + 1.5 
+    = 3^log3(n) * T(n/3^log3(n)) + 1
 
-    1.5 comes from the sum of 1 + 1/3 + 1/9 + 1/27 +.... using geometric sums a/(1+r), r = 1/3
+    = 3^log3(n) * T(n/n) + 1
 
-    T(n/3^log3(n)) = 1
+    = 3^log3(n) * T(1) + 1
 
-    so 3^log3(n)*1 + 1.5
+    = 3^log3(n) * 1 + 1
 
-    log(n) + 1.5
+    = n + 1
 
-asymtotically, the bases of the log doesnt matter, neither does the constant so
-$\Theta$(log(n)) 
+asymtotically, the constant doesn't matter so
+$\Theta$(n) 
